@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "outputDirectory": "./artifacts/speedup/dist/public",
   "env": {
     "PORT": "3000",
