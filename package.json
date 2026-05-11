@@ -1,15 +1,19 @@
 {
   "name": "workspace",
+  "private": true,
   "version": "0.0.0",
   "license": "MIT",
-  "private": true,
   "engines": {
     "node": "20.x"
   },
+  "workspaces": [
+    "artifacts/*",
+    "packages/*",
+    "scripts/*"
+  ],
   "scripts": {
-    "build": "npm run typecheck",
-    "typecheck": "tsc --build",
-    "typecheck:libs": "tsc --build"
+    "build": "npm run typecheck --workspaces",
+    "typecheck": "tsc --build"
   },
   "devDependencies": {
     "typescript": "~5.9.2",
