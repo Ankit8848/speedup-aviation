@@ -4,19 +4,17 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "node": "20.x"
+    "node": ">=18.x"
   },
-  "workspaces": [
-    "artifacts/*",
-    "packages/*",
-    "scripts/*"
-  ],
   "scripts": {
-    "build": "npm run typecheck --workspaces",
-    "typecheck": "tsc --build"
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "build": "pnpm --filter @workspace/speedup run build",
+    "dev": "PORT=5173 BASE_PATH=/ pnpm --filter @workspace/speedup dev"
   },
   "devDependencies": {
-    "typescript": "~5.9.2",
-    "prettier": "^3.8.1"
+    "@types/node": "^25.6.2",
+    "prettier": "^3.8.1",
+    "tailwindcss": "catalog:",
+    "typescript": "~5.9.2"
   }
 }
