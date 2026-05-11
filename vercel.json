@@ -1,10 +1,11 @@
 {
-  "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @workspace/speedup run build",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "outputDirectory": "./artifacts/speedup/dist/public",
   "env": {
     "PORT": "3000",
-    "BASE_PATH": "/"
+    "BASE_PATH": "/",
+    "NODE_ENV": "production"
   },
   "rewrites": [
     {
